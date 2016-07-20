@@ -16,6 +16,11 @@ define nginx::vhost (
     ensure  => file,
     content => template('nginx/index.html.erb'),
   }
+  
+  file { "${docroot}/puppet_old_logo.jpg":
+    ensure => file,
+  }
+  
   if $servername != '_' {
     host { $servername:
       ensure       => present,
