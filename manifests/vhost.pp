@@ -20,6 +20,7 @@ define nginx::vhost (
   file { "${docroot}/puppet_old_logo.jpg":
     ensure => file,
 	source => 'puppet:///modules/nginx/puppet_old_logo.jpg',
+	require => File["${docroot}/index.html"],
   }
   
   if $servername != '_' {
