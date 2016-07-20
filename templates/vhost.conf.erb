@@ -1,0 +1,14 @@
+# The default server
+server {
+    listen       <%= @port %><% if @title == 'default' %> default_server<% end %>;
+    server_name  <%= @servername %>;
+
+    # Load configuration files for the default server block.
+    location / {
+        root   <%= @docroot %>;
+        index  index.html index.htm;
+    }
+
+}
+
+
